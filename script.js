@@ -5,8 +5,11 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "{", "|", "}", "~"]
 
-// Write password to the #password input
+// Master Function 
+
 function generatePassword() {
+
+    //User Specification Prompts
     var passLength = parseInt(
         prompt
             ('Enter password length between 8-128 characters.')
@@ -36,16 +39,18 @@ function generatePassword() {
         ("Would you like to include symbols?")
     )
 
-    // if statement
+    // Alert 
     if (
         randomUpper === false &&
         randomLower === false &&
         randomNumber === false &&
         randomSymbol === false
     ) {
-        alert('you must pick one character type');
+        alert('You must include one type of character.');
         return;
     }
+
+    // Randomization Function 
     var allChar = []
     if (randomUpper === true) {
         allChar = allChar.concat(upperCase)
@@ -69,16 +74,15 @@ function generatePassword() {
     console.log(password);
     return password.join('');
 };
-// function createPassword() {
-//   var potentialPassword = []
-//   var userSelectedPass =
-// }
-// referencing the button element
+
 var generateBtn = document.querySelector("#generate");
-// responsible for password input box
+
+//Writing the Password
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
 }
+
+//Calling writePassword Function
 generateBtn.addEventListener("click", writePassword);
